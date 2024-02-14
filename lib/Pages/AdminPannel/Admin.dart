@@ -7,8 +7,6 @@ import 'package:myntra/Pages/AdminPannel/FootWare/Kids_Footware/Kids_Footware.da
 import 'package:myntra/Pages/AdminPannel/FootWare/Man_Footware/Man_Footware.dart';
 import 'package:myntra/Pages/AdminPannel/FootWare/Woman_Footware/Woman_Footware.dart';
 import 'package:myntra/Pages/AdminPannel/Skin%20care/Skincare.dart';
-import 'package:myntra/Pages/AdminPannel/orderPlaced/confirm_order.dart';
-
 import 'Apparsal/Woman_Apparsal/Woman_Clothes.dart';
 import 'Luxury/Luxury.dart';
 

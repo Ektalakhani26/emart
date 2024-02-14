@@ -1,4 +1,0 @@
-class std{
-
-  var name;
-}
