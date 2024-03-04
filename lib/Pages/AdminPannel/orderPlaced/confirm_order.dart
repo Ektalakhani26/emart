@@ -11,7 +11,6 @@ class Order_Conform extends StatefulWidget {
 
 class _Order_ConformState extends State<Order_Conform> {
 
-
   Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>> getData() async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     QuerySnapshot<Map<String, dynamic>> data =
@@ -19,7 +18,7 @@ class _Order_ConformState extends State<Order_Conform> {
     if (data.docs.isEmpty) {
       return [];
     }
-    print('data docs = ${data.docs}');
+   // print('data docs = ${data.docs}');
     return data.docs;
   }
 
@@ -30,6 +29,8 @@ class _Order_ConformState extends State<Order_Conform> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
+        leading: Icon(Icons.filter_tilt_shift_sharp),
         title: Text('Order'),
       ),
       body: FutureBuilder(
@@ -54,7 +55,7 @@ class _Order_ConformState extends State<Order_Conform> {
             itemBuilder: (context, index) {
               final productData = snapshot.data![index].data();
               return Padding(
-                padding: const EdgeInsets.only(left: 10.0,right: 10),
+                padding: const EdgeInsets.only(left: 10.0,right: 10,top: 20),
                 child: Column(
                   children: [
                     Padding(
@@ -66,8 +67,9 @@ class _Order_ConformState extends State<Order_Conform> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: ListView.builder(
-                            itemCount: productData["data"].length,
+                            itemCount: (productData["data"] as List<dynamic>?)?.length ?? 0,
                             itemBuilder: (context, index) {
+                              print('length = ${productData["data"].length}');
                              return Padding(
                                padding: const EdgeInsets.all(8.0),
                                child: Column(
@@ -143,7 +145,7 @@ class _Order_ConformState extends State<Order_Conform> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10.0,right: 10,bottom: 10),
+                      padding: const EdgeInsets.only(left: 10.0,right: 10),
                       child: Row(
                         children: [
                           Text('Price :',

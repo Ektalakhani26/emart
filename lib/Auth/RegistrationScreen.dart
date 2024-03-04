@@ -217,8 +217,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 if(formKey.currentState!.validate()){
                                   //================= Method called ====================================
 
-                                  Registration();
-
                                   //=================== data save in firebase ==============================
                                   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
                                   String id = "User${DateTime.now().millisecondsSinceEpoch}";
@@ -233,6 +231,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     SnackBar(content: Text('Registration complete')),
                                   );
                                 }
+                                Registration();
                                 //Navigator.push(context, MaterialPageRoute(builder: (context) => Login1(),));
                               }, child: Text('Sign Up',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
                         ),
